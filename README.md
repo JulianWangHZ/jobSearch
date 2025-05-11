@@ -15,7 +15,7 @@ This project provides an automated solution for scraping QA/Test/SDET/Quality-re
 - **Targeted Scraping**: Only QA/Test/SDET/Quality jobs, filtered by Chinese and English keywords
 - **Location & Seniority Filtering**: Taipei City, New Taipei City, full-time, entry and mid-senior level positions
 - **Batch Delivery**: Configurable jobs per message with beautiful formatting
-- **Auto-delete**: Messages are automatically deleted after 24 hours to maintain channel cleanliness
+- **Auto-delete**: Messages are automatically deleted after 5 hours to maintain channel cleanliness
 - **Error Handling**: Robust logging and graceful error recovery
 
 ---
@@ -66,7 +66,7 @@ Main settings are in `discord_bot.py`:
 
 ---
 
-## 📖 Usage
+## 🎯 Usage
 
 1. Create a Bot in Discord Developer Portal and get the Token
 2. Invite the Bot to your server
@@ -81,7 +81,7 @@ The bot will:
 - Crawl job listings from CakeResume every 2 days
 - Filter jobs based on keywords and parameters
 - Send formatted messages to the specified Discord channel
-- Automatically delete messages after 24 hours
+- Automatically delete messages after 5 hours
 
 ---
 
