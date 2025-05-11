@@ -80,7 +80,7 @@ async def send_jobs_to_discord(channel, jobs, page):
             )
         message = page_header + job_list
         msg = await channel.send(message)
-        task = asyncio.create_task(delete_later(msg, 604800))
+        task = asyncio.create_task(delete_later(msg, 86400))
         delete_tasks.append(task)
 
 async def delete_later(msg, delay):
