@@ -3,14 +3,14 @@ import discord
 import aiohttp
 import os
 
+from dotenv import dotenv_values
 from pyquery import PyQuery as pq
 from datetime import datetime, timedelta
-from dotenv import load_dotenv
 
 
-load_dotenv()
-TOKEN = os.getenv('DISCORD_TOKEN')
-CHANNEL_ID = int(os.getenv('DISCORD_CHANNEL_ID'))
+config = dotenv_values(".env")
+TOKEN = config['DISCORD_TOKEN']
+CHANNEL_ID = int(config['DISCORD_CHANNEL_ID'])
 
 BASE_URL = "https://www.cake.me/jobs/qa%20engineer"
 PARAMS = {
