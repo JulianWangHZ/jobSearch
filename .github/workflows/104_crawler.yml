@@ -1,4 +1,4 @@
-name: Cake Job Crawler
+name: 104 Job Crawler
 
 on:
   schedule:
@@ -22,8 +22,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run CakeResume crawler
+      - name: Run 104 crawler
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-          DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CAKE_CHANNEL_ID }}
-        run: python cake_crawler.py
+          DISCORD_104_CHANNEL_ID: ${{ secrets.DISCORD_104_CHANNEL_ID }}
+        run: python 104_crawler.py
