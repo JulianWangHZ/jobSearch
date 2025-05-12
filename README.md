@@ -6,6 +6,8 @@ A professional Discord Bot that automatically crawls QA Engineer job listings fr
 
 ## 🚀 Project Overview
 
+![Job Crawler Demo](./images/demo.gif)
+
 This project provides an automated solution for scraping QA/Test/SDET/Quality-related job postings from CakeResume (Taipei City and New Taipei City, full-time, entry and mid-senior level positions) and delivering them to Discord. Perfect for HR, tech communities, and job seekers who want real-time, filtered job information in their Discord channels.
 
 ---
