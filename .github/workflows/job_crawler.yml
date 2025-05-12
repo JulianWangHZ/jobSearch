@@ -25,5 +25,5 @@ jobs:
       - name: Run CakeResume crawler
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
-          DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CAKE_CHANNEL_ID }}
+          DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
         run: python cake_crawler.py
