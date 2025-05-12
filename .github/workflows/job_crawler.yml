@@ -1,20 +1,19 @@
-name: QA Job Crawler
+name: Job Crawler
 
 on:
-  workflow_dispatch:
-
   schedule:
     - cron: "0 0 */1 * *" # run every day
+  workflow_dispatch:
 
 jobs:
   crawl:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
@@ -23,8 +22,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run crawler
+      - name: Run CakeResume crawler
         env:
           DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
           DISCORD_CHANNEL_ID: ${{ secrets.DISCORD_CHANNEL_ID }}
         run: python discord_bot.py
+
+      - name: Run 104 crawler
+        env:
+          DISCORD_TOKEN: ${{ secrets.DISCORD_TOKEN }}
+          DISCORD_104_CHANNEL_ID: ${{ secrets.DISCORD_104_CHANNEL_ID }}
+        run: python 104_crawler.py
