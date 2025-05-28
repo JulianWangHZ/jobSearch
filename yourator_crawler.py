@@ -54,7 +54,13 @@ async def fetch_jobs(page=1):
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         
-        service = Service(ChromeDriverManager().install())
+        # use system installed chrome driver in github actions
+        if os.environ.get('GITHUB_ACTIONS'):
+            service = Service('/usr/bin/chromedriver')
+        else:
+            # use webdriver_manager in local environment
+            service = Service(ChromeDriverManager().install())
+            
         driver = webdriver.Chrome(service=service, options=chrome_options)
         
         url = f"{BASE_URL}?area[]=TPE&area[]=NWT&position[]=full_time&remoteWork[]=none&remoteWork[]=full&remoteWork[]=partial&sort=most_related&term[]=QA%20Engineer&page={page}"
