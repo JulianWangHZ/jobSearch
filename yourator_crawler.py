@@ -6,6 +6,8 @@ import json
 import logging
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -52,7 +54,8 @@ async def fetch_jobs(page=1):
         chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--disable-dev-shm-usage')
         
-        driver = webdriver.Chrome(options=chrome_options)
+        service = Service(ChromeDriverManager().install())
+        driver = webdriver.Chrome(service=service, options=chrome_options)
         
         url = f"{BASE_URL}?area[]=TPE&area[]=NWT&position[]=full_time&remoteWork[]=none&remoteWork[]=full&remoteWork[]=partial&sort=most_related&term[]=QA%20Engineer&page={page}"
         
@@ -66,7 +69,7 @@ async def fetch_jobs(page=1):
         doc = pq(html)
         jobs = []
         
-        # 解析職缺列表
+
         job_items = doc('div.flex.min-w-0.flex-auto.flex-col.flex-nowrap.py-3.pl-4.pr-5')
         logger.info(f"Found {len(job_items)} jobs on page {page}")
         
