@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 config = dotenv_values(".env")
 TOKEN = os.getenv('DISCORD_TOKEN') or config.get('DISCORD_TOKEN')
-CHANNEL_ID = int(os.getenv('DISCORD_104_CHANNEL_ID') or config.get('DISCORD_CHANNEL_ID'))
+CHANNEL_ID = int(os.getenv('DISCORD_104_CHANNEL_ID') or dotenv_values(".env").get('DISCORD_104_CHANNEL_ID'))
 
 # 104 API URL
 API_URL = "https://www.104.com.tw/jobs/search/list"
